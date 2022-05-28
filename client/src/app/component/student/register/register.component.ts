@@ -44,6 +44,7 @@ export class RegisterComponent implements OnInit {
             () => {
               console.log('Register successfully!');
               // this.ngZone,run(() =>)
+              alert('Register successfully!')
             },
             (error) => {
               console.log(error);

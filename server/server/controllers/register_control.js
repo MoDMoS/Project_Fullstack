@@ -3,6 +3,7 @@ const subject = require('../models/subject_model')
 const createRegister = async (req,res) => {
     let registers = new register({
         UserID: req.body.UserID,
+        Name: req.body.Name,
         SubjectID: req.body.SubjectID,
         SectionNo: req.body.SectionNo
     })
