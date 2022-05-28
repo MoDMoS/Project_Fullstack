@@ -12,11 +12,10 @@ import { CrudService } from '../../../service/crud.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  auth = { 
-    token: localStorage.getItem('auth-token') ,
+  auth = {
+    token: localStorage.getItem('auth-token'),
     UserID: localStorage.getItem('UserID')
   }
-
   constructor(
     public formBuilder: FormBuilder,
     // private router: Router,
@@ -27,12 +26,13 @@ export class RegisterComponent implements OnInit {
   ) {
     this.registerForm = formBuilder.group({
       UserID: localStorage.getItem('UserID'),
+      Name :  localStorage.getItem('Name'),
       SubjectID: [''],
       SectionNo: [''],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit(): any {
     this.http.post('http://localhost:4000/api/user/verify', this.auth).subscribe({
@@ -62,5 +62,5 @@ export class RegisterComponent implements OnInit {
   add() {
     this.Array = new Array(this.Array.length + 1);
   }
-  
+
 }

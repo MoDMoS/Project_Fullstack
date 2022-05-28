@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let index of Day" style="text-align:center">
-          <th scope="row" style="width: 20%;">{{index.day}}day</th>
+          <th scope="row" style="width: 20%;">{{index.day}}</th>
           <td>
             <label *ngFor="let result of Result">
               <small *ngIf="check(result.StartTime, '9:00', result.Day, index.day) else elseBlock" style="visibility: hidden"></small>
