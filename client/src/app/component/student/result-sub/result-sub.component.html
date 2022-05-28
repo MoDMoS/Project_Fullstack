@@ -1,0 +1,51 @@
+<app-sidenav></app-sidenav>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-md-5 py-4">
+  <h4>Selected Values</h4>
+
+  <div>
+    Selected: {{selectedValue}}
+  </div>
+
+  <mat-card>
+    <div class="row">
+      <div class="col-8">
+        <div>
+        </div>
+        <h3>ตรวจสอบผลลงทะเบียน</h3>
+        <div class="row justify-content-center">
+          <div class="col-sm">
+            <select name="my-select" [(ngModel)]="mySelect" (change)="selectChange()">
+              <option [value]="item.id" *ngFor="let item of data">
+                ปีการศึกษาที่ {{item.value}}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm">
+            <select name="my-select" [(ngModel)]="mySelect2" (change)="selectChange()">
+              <option [value]="item.id" *ngFor="let item of num">
+                ภาคเรียนที่ {{item.value}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <table class="table table-bordered border border-dark" style="margin-top: 10px; font-size: 18px">
+          <thead>
+            <tr>
+              <th scope="col-2" class="text-center">รหัสวิชา</th>
+              <th scope="col-2" class="text-center">ชื่อวิชา</th>
+              <th scope="col-2" class="text-center">ตอนเรียน</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of Result">
+              <th scope="row" style="text-align: center">{{result.SubjectID}}</th>
+              <td>{{result.SubjectName}}</td>
+              <td style="text-align: center">{{result.SectionNo}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </mat-card>
+</div>

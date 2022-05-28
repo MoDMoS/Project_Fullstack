@@ -1,0 +1,52 @@
+<app-tsidenav></app-tsidenav>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-md-5 py-4">
+  <mat-card style="width: 60%; margin-left: 20%;">
+  <h3>รายชื่อนักศึกษาที่ลงทะเบียน</h3>
+    <div class="row justify-content-center">
+      <div class="col-sm">
+        <select name="my-select" [(ngModel)]="mySelect" (change)="selectChange()">
+          <option [value]="item.id" *ngFor="let item of data">
+            ปีการศึกษาที่ {{item.value}}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <select name="my-select" [(ngModel)]="mySelect2" (change)="selectChange()">
+          <option [value]="item.id" *ngFor="let item of num">
+            ภาคเรียนที่ {{item.value}}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <select name="my-select" [(ngModel)]="mySelect3" (change)="selectChange()">
+          <option [value]="item.id" *ngFor="let item of pass">
+            รหัสวิชา {{item.value}}
+          </option>
+        </select>
+    </div>
+    <div class="col-sm">
+      <select name="my-select" [(ngModel)]="mySelect4" (change)="selectChange()">
+        <option [value]="item.id" *ngFor="let item of sec">
+          ตอนเรียนที่ {{item.value}}
+        </option>
+      </select>
+    </div>
+      <table class="table" style="width:100%">
+        <thead class="table-light">
+          <tr style="text-align:center">
+            <th scope="col" class="text-center" style="width:100px">ลำดับที่</th>
+            <th scope="col" style="width:300px;">เลขประจำตัว</th>
+            <th scope="col" style="text-align:left">ชื่อ-นามสกุล</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of Result2; let i = index">
+            <th scope="row" style="text-align:center">{{i+1}}</th>
+            <td style="text-align:center">{{result.UserID}}</td>
+            <td>{{result.Name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-card>
+</div>

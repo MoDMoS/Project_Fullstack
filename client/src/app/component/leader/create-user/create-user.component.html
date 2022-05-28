@@ -1,0 +1,42 @@
+<app-lsidenav></app-lsidenav>
+  <div class="col-md-9 ml-sm-auto col-lg-10 px-md-5 py-4">
+  <mat-card>
+    <h3>เพิ่มผู้ใช้</h3>
+      <form [formGroup]="createUserForm" (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">เลขประจำตัว</label>
+          <input type="email" class="form-control" id="UserID" placeholder="เลขประจำตัว" formControlName="UserID">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">ชื่อ-สกุล</label>
+          <input type="password" class="form-control" id="name" placeholder="ชื่อ-สกุล" formControlName="firstname">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">อีเมล</label>
+          <input type="password" class="form-control" id="email" placeholder="อีเมล" aria-describedby="emailHelp" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">รหัสผ่าน</label>
+          <input type="password" class="form-control" id="password" placeholder="รหัสผ่าน" formControlName="password">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">ที่อยู่</label>
+          <input type="password" class="form-control" id="address" placeholder="ที่อยู่" formControlName="address">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">เบอร์โทรศัพท์</label>
+          <input type="tel" class="form-control" id="telno" placeholder="เบอร์โทรศัพท์" formControlName="telno">
+        </div><br>
+        <div class="dropdown">
+          <label for="SubjectRoom">สถานะ</label>
+          <select class="ml-3 btn btn-light dropdown-toggle" name="my-select" [(ngModel)]="mySelect" formControlName="status">
+            <option value="Student">นักศึกษา</option>
+            <option value="Teacher">อาจารย์</option>
+            <option value="Leader">หัวหน้าภาค</option>
+          </select>
+        </div><br>
+        <button type="submit" class="btn btn-primary container">Submit</button>
+      </form>
+  </mat-card>
+</div>
+

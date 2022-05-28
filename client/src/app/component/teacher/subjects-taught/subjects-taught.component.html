@@ -1,0 +1,44 @@
+<app-tsidenav></app-tsidenav>
+  <div class="col-md-9 ml-sm-auto col-lg-10 px-md-5 py-4">
+  <mat-card>
+    <h3>วิชาที่สอน</h3>
+
+    <div class="row justify-content-center">
+      <div class="col-sm">
+        <select name="my-select" [(ngModel)]="mySelect" (change)="selectChange()">
+          <option [value]="item.id" *ngFor="let item of data">
+            ปีการศึกษาที่ {{item.value}}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <select name="my-select" [(ngModel)]="mySelect2" (change)="selectChange()">
+          <option [value]="item.id" *ngFor="let item of num">
+            ภาคเรียนที่ {{item.value}}
+          </option>
+        </select>
+      </div>
+      <table class="table" style="margin-top: 10px">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">รหัสวิชา</th>
+            <th scope="col">ชื่อวิชา</th>
+            <th scope="col">ตอนเรียนที่</th>
+            <th scope="col">เวลาที่สอน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of Result">
+            <th scope="row">{{result.SubjectID}}</th>
+            <td>{{result.SubjectName}}</td>
+            <td>{{result.SectionNo}}</td>
+            <td>{{result.Day}}.{{result.StartTime}}-{{result.EndTime}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+  </mat-card>
+
+</div>

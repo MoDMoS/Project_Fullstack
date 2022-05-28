@@ -1,0 +1,33 @@
+
+<app-sidenav></app-sidenav>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-md-5 py-4">
+  <mat-card>
+    <h3>เปลี่ยนตอนเรียน</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-4">
+          <div class="mb-3 mr-4">
+            <label for="exampleFormControlInput1" class="form-label">รหัสวิชา</label>
+            <input type="text" class="form-control mb-4" formControlName="SubjectID" required>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="mb-3 ">
+            <label for="exampleFormControlInput1" class="form-label">ตอนเรียนเดิม</label>
+            <input type="text" class="form-control mb-4" formControlName="SectionOld" required>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">ตอนเรียนใหม่</label>
+            <input type="text" class="form-control mb-4" formControlName="SectionNew" required>
+          </div>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn" type="submit" style="background-color: #37dff9;">ยืนยัน</button>
+      </div>
+    </form>
+
+  </mat-card>
+</div>

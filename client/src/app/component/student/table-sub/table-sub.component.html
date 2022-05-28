@@ -1,0 +1,73 @@
+<app-sidenav></app-sidenav>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-md-5 py-4">
+
+  <mat-card>
+
+    <h3>ตารางเรียน</h3>
+    <table class="table table-bordered border border-dark" style="font-size: 18px">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col" class="text-center" style="width: 25%;">9.00 - 12.00</th>
+          <th scope="col" class="text-center" style="width: 25%;">13.00 - 16.00</th>
+          <th scope="col" class="text-center" style="width: 25%;">17.00 - 20.00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let index of Day" style="text-align:center">
+          <th scope="row" style="width: 20%;">{{index.day}}day</th>
+          <td>
+            <label *ngFor="let result of Result">
+              <small *ngIf="check(result.StartTime, '9:00', result.Day, index.day) else elseBlock" style="visibility: hidden"></small>
+              <ng-template #elseBlock>
+                <td>{{result.SubjectName}}</td>
+              </ng-template>
+            </label>
+          </td>
+          <td>
+            <label *ngFor="let result of Result">
+              <small *ngIf="check(result.StartTime,'13:00', result.Day, index.day) else elseBlock" style="visibility: hidden"></small>
+              <ng-template #elseBlock>
+                <td>{{result.SubjectName}}</td>
+              </ng-template>
+            </label>
+          </td>
+          <td>
+            <label *ngFor="let result of Result">
+              <small *ngIf="check(result.StartTime, '17:00', result.Day, index.day) else elseBlock" style="visibility: hidden"></small>
+              <ng-template #elseBlock>
+                <td>{{result.SubjectName}}</td>
+              </ng-template>
+            </label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </mat-card>
+  <mat-card style="margin-top: 30px">
+    <div class="row">
+      <div class="col-8">
+        <h3>ตารางสอบ</h3>
+        <table class="table table-bordered border border-dark " style="font-size: 18px">
+          <thead>
+            <tr>
+              <th class="col-2">Subject</th>
+              <th class="col-4">Midterm</th>
+              <th class="col-4">Final</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of Result">
+              <th scope="row">{{result.SubjectName}}</th>
+              <td>{{[result.MidtermDate]}}</td>
+              <td>{{[result.FinalDate]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card>
+
+</div>
