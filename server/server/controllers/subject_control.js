@@ -107,12 +107,16 @@ const findbyUser = async (req, res) => {
     let Data = []
     await register.find({ UserID: UserID_ })
         .then(async subjects => {
-            //console.log(subjects[0].SubjectID)
+            //console.log(subjects)
             for (let i = 0; i < subjects.length; i++) {
                 Data[i] = await subject.findOne({
-                    SubjectID: subjects[i].SubjectID
+                    $and: [{
+                        SubjectID: subjects[i].SubjectID,
+                        SectionNo: subjects[i].SectionNo 
+                    }]
                 })
             }
+            console.log(Data)
             if (Data) res.json(Data)
         }).catch(err => {
             json.error(err)
