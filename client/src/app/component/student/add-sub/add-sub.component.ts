@@ -12,7 +12,7 @@ import { CrudService } from '../../../service/crud.service';
 export class AddSubComponent implements OnInit {
   registerForm: FormGroup;
 
-  auth = { 
+  auth = {
     token: localStorage.getItem('auth-token') ,
     UserID: localStorage.getItem('UserID')
   }
@@ -42,6 +42,7 @@ export class AddSubComponent implements OnInit {
             () => {
               console.log('Register successfully!');
               // this.ngZone,run(() =>)
+              alert('Register successfully!')
             },
             (error) => {
               console.log(error);

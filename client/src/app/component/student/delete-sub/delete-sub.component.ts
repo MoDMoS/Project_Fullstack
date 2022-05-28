@@ -42,6 +42,7 @@ export class DeleteSubComponent implements OnInit {
             () => {
               console.log('Delete successfully!');
               // this.ngZone,run(() =>)
+              alert('Delete successfully!')
             },
             (error) => {
               console.log(error);

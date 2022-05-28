@@ -12,7 +12,7 @@ import { CrudService} from '../../../service/crud.service';
 export class ChangeSubComponent implements OnInit {
 
   registerForm: FormGroup;
-  auth = { 
+  auth = {
     token: localStorage.getItem('auth-token') ,
     UserID: localStorage.getItem('UserID')
   }
@@ -44,6 +44,7 @@ export class ChangeSubComponent implements OnInit {
         .subscribe(() => {
           console.log("Change sections successfully!")
           // this.ngZone,run(() =>)
+          alert('Change sections successfully!')
         }, (error) => {
           console.log(error)
         })
