@@ -33,8 +33,11 @@ export class CreateUserComponent implements OnInit {
     .subscribe(res => {
       let response = Object.values(res)
       if(response[0] == 'Error'){
-        alert('Error')
-      }else{
+        alert('User Already')
+      }else if(response[0] == 'Error_'){
+        alert('Added user failed')
+      }
+      else{
         alert('Success')
       }
       console.log(response);

@@ -17,23 +17,38 @@ const createUser = async (req, res) => {
         UserID: req.body.UserID,
         status: req.body.status,
         firstname: req.body.firstname,
-        lastname: req.body.lastname,
         email: req.body.email,
         password: Password,
         address: req.body.address,
         telno: req.body.telno,
     })
-    users.save()
-        .then(response => {
-            res.json({
-                message: 'Student added Successfully!'
-            })
+    let finduser = await user.findOne({UserID: req.body.UserID})
+    if(req.body.UserID == ""){
+        res.json({
+            message: 'Error_'
         })
-        .catch(err => {
+    }else{
+       if(!finduser){
+            users.save()
+            .then(response => {
+                res.json({
+                    message: 'Student added Successfully!'
+                })
+            })
+            .catch(err => {
+                console.log(err)
+                res.json({
+                    message: 'Error'
+                })
+            })
+        }else{
             res.json({
                 message: 'Error'
             })
-        })
+        } 
+    }
+    
+        
 }
 
 const DeleteUser = async (req,res) => {

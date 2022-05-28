@@ -5,31 +5,31 @@
       <form [formGroup]="createUserForm" (ngSubmit)="submit()">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">เลขประจำตัว</label>
-          <input type="email" class="form-control" id="UserID" placeholder="เลขประจำตัว" formControlName="UserID">
+          <input type="text" class="form-control" id="UserID" placeholder="เลขประจำตัว" formControlName="UserID" required>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">ชื่อ-สกุล</label>
-          <input type="password" class="form-control" id="name" placeholder="ชื่อ-สกุล" formControlName="firstname">
+          <input type="text" class="form-control" id="name" placeholder="ชื่อ-สกุล" formControlName="firstname" required>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">อีเมล</label>
-          <input type="password" class="form-control" id="email" placeholder="อีเมล" aria-describedby="emailHelp" formControlName="email">
+          <input type="email" class="form-control" id="email" placeholder="อีเมล" aria-describedby="emailHelp" formControlName="email" required>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">รหัสผ่าน</label>
-          <input type="password" class="form-control" id="password" placeholder="รหัสผ่าน" formControlName="password">
+          <input type="password" class="form-control" id="password" placeholder="รหัสผ่าน" formControlName="password" required>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">ที่อยู่</label>
-          <input type="password" class="form-control" id="address" placeholder="ที่อยู่" formControlName="address">
+          <input type="text" class="form-control" id="address" placeholder="ที่อยู่" formControlName="address" required>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">เบอร์โทรศัพท์</label>
-          <input type="tel" class="form-control" id="telno" placeholder="เบอร์โทรศัพท์" formControlName="telno">
+          <input type="tel" class="form-control" id="telno" placeholder="เบอร์โทรศัพท์" formControlName="telno" required>
         </div><br>
         <div class="dropdown">
           <label for="SubjectRoom">สถานะ</label>
-          <select class="ml-3 btn btn-light dropdown-toggle" name="my-select" [(ngModel)]="mySelect" formControlName="status">
+          <select class="ml-3 btn btn-light dropdown-toggle" name="my-select" [(ngModel)]="mySelect" formControlName="status" required>
             <option value="Student">นักศึกษา</option>
             <option value="Teacher">อาจารย์</option>
             <option value="Leader">หัวหน้าภาค</option>
