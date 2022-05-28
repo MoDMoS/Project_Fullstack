@@ -124,8 +124,19 @@ const findtermandyear = async (req, res) => {
                 }]
             })
         }
-        //console.log(Data[0])
-        if(Data[0] != null) res.json(Data)
+        let DataF = []
+        let j = 0
+        for(let i=0;i<Data.length;i++){
+            if(Data[i] == null) continue
+            else {
+                DataF[j] = Data[i]
+                console.log(DataF[i])
+                j++
+                
+            }
+        }
+        
+        if(DataF.length > 0) res.json(DataF)
         else res.json({ message: "Error" })
     }).catch(err =>{
         console.log(err)
