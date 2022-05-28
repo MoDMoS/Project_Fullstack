@@ -130,7 +130,7 @@ export class StudentListComponent implements OnInit {
       }else{
         console.log(res)
         for(let i = 0; i < res.length; i++){
-          console.log(res[0].SectionNo)
+          //console.log(res[0].SectionNo)
           this.sec.push({id: i, value: res[i].SectionNo})
         }
         //console.log(res[0]);
@@ -146,7 +146,7 @@ export class StudentListComponent implements OnInit {
             //console.log(res)
             this.Result2 = null
             this.Result2 = res
-            console.log(this.Result2)
+            //console.log(this.Result2)
           }
         })
       }
