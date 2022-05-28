@@ -109,7 +109,12 @@ export class StudentListComponent implements OnInit {
           //console.log(this.Result);
           for(let i = 1; i < this.Result.length+1; i++){
             let id = this.Result[i-1].SubjectID
-            this.pass.push({id: i, value: id})
+            console.log(this.pass[i].value)
+            for(let j = 0; j < this.pass.length; j++){
+              
+              if(this.pass[j].value === id ) continue;
+              else this.pass.push({id: i, value: id})
+            }
           }
         }
       }
@@ -130,7 +135,7 @@ export class StudentListComponent implements OnInit {
         console.log(res)
         for(let i = 0; i < res.length; i++){
           //console.log(res[0].SectionNo)
-          this.sec.push({id: i, value: res[0].SectionNo})
+          this.sec.push({id: i, value: res[i].SectionNo})
         }
         //console.log(this.Result2);
         this.crudService.getStudent(res[0])
@@ -139,10 +144,11 @@ export class StudentListComponent implements OnInit {
           //console.log(response[0]);
           if(response[0] == 'Error'){
             this.Result2 = []
+            this.sec = []
           }else{
             //console.log(res)
             this.Result2 = res
-            //console.log(this.Result2)
+            console.log(this.Result2)
           }
         })
       }

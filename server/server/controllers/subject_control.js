@@ -116,7 +116,7 @@ const findbyUser = async (req, res) => {
                     }]
                 })
             }
-            console.log(Data)
+            //console.log(Data)
             if (Data) res.json(Data)
         }).catch(err => {
             json.error(err)
@@ -139,13 +139,6 @@ const findTeachbyUser = async (req, res) => {
                     Year: _year
                 }]
             }) 
-            console.log(await subject.find({
-                $and: [{
-                    UserID: _UserID,
-                    Term: _term,
-                    Year: _year
-                }]
-            }) );
             if (Data.length > 0) res.json(Data)
             else res.json({ message: "Error" })
         }).catch(err => {
