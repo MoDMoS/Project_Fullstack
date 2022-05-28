@@ -38,7 +38,6 @@ export class StudentListComponent implements OnInit {
         let id = this.Result[i-1].SubjectID
         this.pass.push({id: i, value: id})
       }
-      this.setSec()
       //console.log(this.pass)
       //console.log(this.num)
     })
@@ -52,6 +51,7 @@ export class StudentListComponent implements OnInit {
   selectedValue: any;
   selectedValue2: any;
   selectedValue3: any;
+  selectedValue4: any;
   num = [{id: 0, value: '1'}, {id: 1, value: '2'}]
 
   pass:any = [{id: 0, value: ''}]
@@ -85,7 +85,7 @@ export class StudentListComponent implements OnInit {
       UserID: localStorage.getItem('UserID'),
       year: [this.selectedValue],
       Term: [this.selectedValue2],
-      SubjectID: [this.selectedValue3]
+      SubjectID: [this.selectedValue3],
     })
     this.sec = []
     //console.log(this.StudentListResult.value);
@@ -109,12 +109,7 @@ export class StudentListComponent implements OnInit {
           //console.log(this.Result);
           for(let i = 1; i < this.Result.length+1; i++){
             let id = this.Result[i-1].SubjectID
-            console.log(this.pass[i].value)
-            for(let j = 0; j < this.pass.length; j++){
-              
-              if(this.pass[j].value === id ) continue;
-              else this.pass.push({id: i, value: id})
-            }
+            this.pass.push({id: i, value: id})
           }
         }
       }
@@ -122,6 +117,7 @@ export class StudentListComponent implements OnInit {
   }
 
   setSec(){
+    console.log("setsec")
     this.selectedValue = this.crudService.getDropDownText(this.mySelect, this.data)[0].value;
     this.selectedValue2 = this.crudService.getDropDownText(this.mySelect2, this.num)[0].value;
     this.selectedValue3 = this.crudService.getDropDownText(this.mySelect3, this.pass)[0].value;
@@ -134,19 +130,21 @@ export class StudentListComponent implements OnInit {
       }else{
         console.log(res)
         for(let i = 0; i < res.length; i++){
-          //console.log(res[0].SectionNo)
+          console.log(res[0].SectionNo)
           this.sec.push({id: i, value: res[i].SectionNo})
         }
-        //console.log(this.Result2);
-        this.crudService.getStudent(res[0])
+        //console.log(res[0]);
+        this.selectedValue4 = this.crudService.getDropDownText(this.mySelect4, this.sec)[0].value;
+        this.crudService.getStudent(res[(this.selectedValue4-1)])
         .subscribe(res => {
           const response = Object.values(res)
-          //console.log(response[0]);
+          //console.log(res);
           if(response[0] == 'Error'){
             this.Result2 = []
             this.sec = []
           }else{
             //console.log(res)
+            this.Result2 = null
             this.Result2 = res
             console.log(this.Result2)
           }

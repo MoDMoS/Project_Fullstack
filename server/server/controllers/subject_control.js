@@ -131,14 +131,15 @@ const findTeachbyUser = async (req, res) => {
     //console.log(_UserID + " " + _term + " " + _year)
     await register.find({ UserID: _UserID })
         .then(async () => {
-            console.log(_UserID + " " + _term + " " + _year)
+            //console.log(_UserID + " " + _term + " " + _year)
             Data = await subject.find({
                 $and: [{
                     UserID: _UserID,
                     Term: _term,
-                    Year: _year
+                    Year: _year,
                 }]
             }) 
+            //console.log(Data)
             if (Data.length > 0) res.json(Data)
             else res.json({ message: "Error" })
         }).catch(err => {
@@ -170,10 +171,17 @@ const findSec = async (req, res) => {
 }
 
 const getStudent = async (req, res) => {
+    console.log(req.body);
     let _SubjectID = req.body.SubjectID
     let _Sec = req.body.SectionNo
-    await register.find({ SubjectID: _SubjectID })
-    .then(async () => {
+    await register.find({
+        $and: [{
+            SubjectID: _SubjectID,
+            SectionNo: _Sec
+        }]
+    })
+    .then(async test => {
+        console.log(test)
         Data = await register.find({
             $and: [{
                 SubjectID: _SubjectID,
